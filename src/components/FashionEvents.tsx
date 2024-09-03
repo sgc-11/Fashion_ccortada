@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import Slider from 'react-slick'; // Import Slider from react-slick
 import { Calendar, MapPin, Clock, User, ChevronLeft, ChevronRight } from 'lucide-react';
-import Slider from '@react-native-community/slider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-// Define interfaces for our data structures
 interface Model {
   id: number;
   name: string;
@@ -22,7 +21,6 @@ interface Event {
   images: string[];
 }
 
-// Mock data (replace with API call later)
 const mockEvents: Event[] = [
   {
     id: 1,
@@ -50,7 +48,6 @@ const mockEvents: Event[] = [
     ],
     images: ["/api/placeholder/400/300", "/api/placeholder/400/300", "/api/placeholder/400/300"],
   },
-  // Add more mock events as needed
 ];
 
 const FashionEvents: React.FC = () => {

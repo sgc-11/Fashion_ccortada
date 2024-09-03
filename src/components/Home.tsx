@@ -6,21 +6,21 @@ const Home = () => {
     <div className="max-w-6xl mx-auto">
       {/* Welcome Section */}
       <section className="text-center py-12">
-        <h1 className="text-4xl md:text-5xl font-bold text-pink-600 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-pink-500 mb-4">
           ¡Welcome to Mesa Enterprice!
         </h1>
-        <div className="bg-white shadow-lg rounded-lg p-6 mb-8">
-          <p className="text-lg text-gray-300 mb-4">
+        <div className="bg-pink-500 shadow-lg rounded-lg p-6 mb-8">
+          <p className="text-lg text-white mb-4">
             At Andrea Mesa, we believe in empowering individuals through the art of beauty and fashion. Our mission is to create a platform where creativity flourishes, diversity is celebrated, and every person can express their unique style with confidence.
           </p>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-white">
             We're more than just a brand; we're a community of passionate artists, models, and beauty enthusiasts who inspire and support each other. Join us on this exciting journey of self-expression and discover the transformative power of makeup, fashion and more.
           </p>
         </div>
         <div className="aspect-w-16 aspect-h-9">
           <iframe
             className="w-full h-full rounded-lg shadow-lg"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            src="https://www.youtube.com/embed/jSjiwmseHAc"
             title="Andrea Mesa Welcome Video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
@@ -29,7 +29,7 @@ const Home = () => {
       </section>
 
       {/* Featured Models Section */}
-      <section className="py-12 px-10 bg-stone-900 mb-10 rounded-lg">
+      <section className="py-12 px-10 bg-pink-500 mb-10 rounded-lg">
         <h2 className="text-3xl font-bold text-pink-600 mb-6">Featured Models</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Replace with actual model data */}
@@ -53,7 +53,7 @@ const Home = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-12 bg-stone-900 rounded-lg px-10">
+      <section className="py-12 bg-pink-500 rounded-lg px-10">
         <h2 className="text-3xl font-bold text-pink-600 mb-6">Featured Products</h2>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {/* Replace with actual product data */}
@@ -78,7 +78,7 @@ const Home = () => {
       </section>
 
       {/* Upcoming Events Section */}
-      <section className="py-12 bg-stone-900 rounded-lg mt-10 px-10 mb-10">
+      <section className="py-12 bg-pink-500 rounded-lg mt-10 px-10 mb-10">
         <h2 className="text-3xl font-bold text-pink-600 mb-6">Upcoming Events</h2>
         <div className="space-y-4">
           {/* Replace with actual event data */}
@@ -97,7 +97,7 @@ const Home = () => {
       </section>
 
       {/* Brand Values Section */}
-      <section className="py-12 bg-stone-900 rounded-lg px-10">
+      <section className="py-12 bg-pink-500 rounded-lg px-10">
         <h2 className="text-3xl font-bold text-pink-600 mb-6">Our Values</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-lg shadow-md p-6">

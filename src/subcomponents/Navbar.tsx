@@ -17,7 +17,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="bg-pink-500 shadow-lg fixed top-6 left-20 right-20 z-50 rounded-md text-gray-200">
+    <nav className="bg-gray-200 shadow-lg fixed top-6 left-20 right-20 z-50 rounded-md text-pink-600">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between">
           <div className="flex space-x-7">
@@ -32,9 +32,9 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                className={`py-4 px-2 text-white font-semibold hover:opacity-55 transition duration-300 ${
-                  location.pathname === item.path ? 'border-b-4 border-white' : ''
-                }`}
+                className={`py-4 px-2 text-white font-semibold transition duration-300 ${
+                  location.pathname === item.path ? 'opacity-100 border-b-4 border-white' : 'opacity-50'
+                } hover:opacity-100`}
               >
                 {item.name}
               </Link>
@@ -57,8 +57,8 @@ const Navbar = () => {
             <li key={item.name}>
               <Link
                 to={item.path}
-                className={`block py-2 px-4 text-sm hover:bg-pink-400 transition duration-300 ${
-                  location.pathname === item.path ? 'bg-pink-400' : ''
+                className={`block py-2 px-4 text-sm transition duration-300 ${
+                  location.pathname === item.path ? 'bg-pink-400 opacity-100' : 'opacity-50 hover:opacity-100'
                 }`}
                 onClick={() => setIsOpen(false)}
               >
