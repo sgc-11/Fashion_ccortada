@@ -9,13 +9,10 @@
     /*background-color: rgb(37, 37, 37);*/
     background-color: #ffffff;
     background-image: linear-gradient(180deg, #ffffff 75%, #ff90ff 98%, #ffffff 100%);
-
-    
   }
 
   body{
-    overflow-x: hidden;
-    margin-bottom: 200px;
+    
   }
 
 }

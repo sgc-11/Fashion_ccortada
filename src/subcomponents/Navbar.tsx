@@ -14,10 +14,12 @@ const Navbar = () => {
     { name: 'Photos', path: '/photos' },
     { name: 'Memberships', path: '/memberships' },
     { name: 'Contact', path: '/contact' },
+    { name: 'Admin', path: '/admin' },
+
   ];
 
   return (
-    <nav className="bg-gray-200 shadow-lg fixed top-6 left-20 right-20 z-50 rounded-md text-pink-600">
+    <nav className="bg-pink-100 shadow-lg fixed top-6 left-20 right-20 z-50 rounded-md text-pink-600 opacity-70 hover:opacity-100 transition-opacity duration-300 ease-in-out">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between">
           <div className="flex space-x-7">

@@ -1,57 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import Slider from 'react-slick'; // Import Slider from react-slick
-import { Calendar, MapPin, Clock, User, ChevronLeft, ChevronRight } from 'lucide-react';
+import Slider from 'react-slick';
+import { Calendar, MapPin, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import mockEvents from '../DATA/EventsData';
+import { FashionEvent } from '../DATA/EventsData';
 
-interface Model {
-  id: number;
-  name: string;
-  image: string;
-}
-
-interface Event {
-  id: number;
-  title: string;
-  date: string;
-  time: string;
-  location: string;
-  description: string;
-  models: Model[];
-  images: string[];
-}
-
-const mockEvents: Event[] = [
-  {
-    id: 1,
-    title: "Summer Gala 2024",
-    date: "2024-07-15",
-    time: "19:00",
-    location: "Grand Plaza Hotel, New York",
-    description: "Our annual summer showcase featuring the latest in haute couture and ready-to-wear collections.",
-    models: [
-      { id: 1, name: "Alice Johnson", image: "/api/placeholder/100/100" },
-      { id: 2, name: "Bob Smith", image: "/api/placeholder/100/100" },
-    ],
-    images: ["/api/placeholder/400/300", "/api/placeholder/400/300", "/api/placeholder/400/300"],
-  },
-  {
-    id: 2,
-    title: "Autumn Fashion Week",
-    date: "2024-09-22",
-    time: "14:00",
-    location: "Metropolitan Museum, Paris",
-    description: "Experience the cutting-edge trends for the upcoming autumn season in this week-long extravaganza.",
-    models: [
-      { id: 3, name: "Carol Davis", image: "/api/placeholder/100/100" },
-      { id: 4, name: "David Brown", image: "/api/placeholder/100/100" },
-    ],
-    images: ["/api/placeholder/400/300", "/api/placeholder/400/300", "/api/placeholder/400/300"],
-  },
-];
 
 const FashionEvents: React.FC = () => {
-  const [events, setEvents] = useState<Event[]>(mockEvents);
+  const [events, setEvents] = useState<FashionEvent[]>(mockEvents);
 
   useEffect(() => {
     // Fetch events from API and update state
@@ -62,10 +19,10 @@ const FashionEvents: React.FC = () => {
     const { onClick } = props;
     return (
       <button
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-pink-500 p-2 rounded-full"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 bg-pink-500 hover:bg-pink-600 p-2 rounded-full shadow-lg transition-all duration-300"
         onClick={onClick}
       >
-        <ChevronLeft className="text-white" />
+        <ChevronLeft className="text-white" size={24} />
       </button>
     );
   };
@@ -74,10 +31,10 @@ const FashionEvents: React.FC = () => {
     const { onClick } = props;
     return (
       <button
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-pink-500 p-2 rounded-full"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 bg-pink-500 hover:bg-pink-600 p-2 rounded-full shadow-lg transition-all duration-300"
         onClick={onClick}
       >
-        <ChevronRight className="text-white" />
+        <ChevronRight className="text-white" size={24} />
       </button>
     );
   };
@@ -90,56 +47,75 @@ const FashionEvents: React.FC = () => {
     slidesToScroll: 1,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
+    customPaging: (i: number) => (
+      <div className="w-3 h-3 bg-pink-300 rounded-full mt-8 hover:bg-pink-500 transition-all duration-300"></div>
+    ),
   };
 
   return (
-    <div className="max-w-6xl mx-auto py-12 px-4">
-      <h1 className="text-4xl font-bold text-pink-500 mb-8">Upcoming Fashion Events</h1>
-      <Slider {...settings}>
-        {events.map((event) => (
-          <div key={event.id} className="px-4">
-            <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-              <div className="md:flex">
-                <div className="md:flex-shrink-0">
-                  <img className="h-48 w-full object-cover md:w-48" src={event.images[0]} alt={event.title} />
-                </div>
-                <div className="p-8">
-                  <div className="uppercase tracking-wide text-sm text-pink-500 font-semibold">{event.date}</div>
-                  <h2 className="block mt-1 text-lg leading-tight font-medium text-white">{event.title}</h2>
-                  <p className="mt-2 text-gray-300">{event.description}</p>
-                  <div className="mt-4 flex items-center text-gray-400">
-                    <MapPin size={16} className="mr-2" />
-                    <span>{event.location}</span>
-                  </div>
-                  <div className="mt-2 flex items-center text-gray-400">
-                    <Clock size={16} className="mr-2" />
-                    <span>{event.time}</span>
-                  </div>
-                </div>
-              </div>
-              <div className="px-8 py-4 bg-gray-700">
-                <h3 className="text-lg font-semibold text-white mb-2">Participating Models</h3>
-                <div className="flex space-x-4">
-                  {event.models.map((model) => (
-                    <div key={model.id} className="flex items-center">
-                      <img className="h-10 w-10 rounded-full mr-2" src={model.image} alt={model.name} />
-                      <span className="text-gray-300">{model.name}</span>
+    <div className="bg-gradient-to-b from-pink-50 to-white py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-5xl font-extrabold text-pink-600 mb-12 text-center">Próximos Eventos de Moda</h1>
+        <Slider {...settings}>
+          {events.map((event) => (
+            <div key={event.id} className="px-4">
+              <div className="bg-white rounded-3xl overflow-hidden shadow-2xl hover:shadow-3xl transition-all duration-300">
+                <div className="md:flex">
+                  <div className="md:flex-shrink-0 relative">
+                    <img className="h-96 w-full object-cover md:w-96" src={event.images[0]} alt={event.title} />
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pink-600 to-transparent p-6">
+                      <h2 className="text-3xl font-bold text-white leading-tight">{event.title}</h2>
                     </div>
-                  ))}
+                  </div>
+                  <div className="p-8 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center mb-4">
+                        <Calendar size={20} className="text-pink-500 mr-2" />
+                        <span className="text-lg text-gray-700">{event.date}</span>
+                      </div>
+                      <p className="text-gray-600 mb-6 leading-relaxed">{event.description}</p>
+                      <div className="flex items-center text-gray-600 mb-2">
+                        <MapPin size={20} className="text-pink-500 mr-2" />
+                        <span>{event.location}</span>
+                      </div>
+                      <div className="flex items-center text-gray-600">
+                        <Clock size={20} className="text-pink-500 mr-2" />
+                        <span>{event.time}</span>
+                      </div>
+                    </div>
+                    <div className="mt-8">
+                      <h3 className="text-xl font-semibold text-pink-600 mb-4">Modelos Participantes</h3>
+                      <div className="flex flex-wrap -mx-2">
+                        {event.models.map((model) => (
+                          <div key={model.id} className="px-2 mb-4">
+                            <div className="flex items-center bg-pink-50 rounded-full px-4 py-2">
+                              <img className="h-10 w-10 rounded-full mr-3 border-2 border-pink-300" src={model.image} alt={model.name} />
+                              <span className="text-gray-700 font-medium">{model.name}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className="px-8 py-4">
-                <h3 className="text-lg font-semibold text-white mb-2">Event Gallery</h3>
-                <div className="grid grid-cols-3 gap-4">
-                  {event.images.map((image, index) => (
-                    <img key={index} className="h-32 w-full object-cover rounded" src={image} alt={`Event image ${index + 1}`} />
-                  ))}
+                <div className="px-8 py-6 bg-pink-50">
+                  <h3 className="text-2xl font-semibold text-pink-600 mb-4">Galería del Evento</h3>
+                  <div className="grid grid-cols-3 gap-4">
+                    {event.images.slice(1).map((image, index) => (
+                      <img 
+                        key={index} 
+                        className="h-32 w-full object-cover rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105" 
+                        src={image} 
+                        alt={`Imagen del evento ${index + 1}`} 
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };
