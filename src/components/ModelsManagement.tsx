@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Instagram, Facebook, Twitter } from 'lucide-react';
 import mockModels from '../DATA/ModelsData';
 
 const ModelsManagement = () => {
   const [currentModelIndex, setCurrentModelIndex] = useState(0);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [models, setModels] = useState(mockModels);
+  const [models] = useState(mockModels);
 
   useEffect(() => {
     // Fetch models from API and update state

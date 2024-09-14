@@ -7,7 +7,7 @@ import Cart from './Cart';
 import mockProducts from '../DATA/productsData';
 
 const ProductsGrid: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>(mockProducts);
+  const [products] = useState<Product[]>(mockProducts);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);

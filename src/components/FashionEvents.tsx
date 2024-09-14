@@ -8,7 +8,7 @@ import { FashionEvent } from '../DATA/EventsData';
 
 
 const FashionEvents: React.FC = () => {
-  const [events, setEvents] = useState<FashionEvent[]>(mockEvents);
+  const [events] = useState<FashionEvent[]>(mockEvents);
 
   useEffect(() => {
     // Fetch events from API and update state
@@ -47,9 +47,7 @@ const FashionEvents: React.FC = () => {
     slidesToScroll: 1,
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
-    customPaging: (i: number) => (
-      <div className="w-3 h-3 bg-pink-300 rounded-full mt-8 hover:bg-pink-500 transition-all duration-300"></div>
-    ),
+
   };
 
   return (

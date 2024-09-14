@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-
-import ModelsManagement from './ModelsManagement';
 import { Product } from '../tsthings.ts/Product';
 
 import { FashionEvent } from '../DATA/EventsData';
